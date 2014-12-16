@@ -4,7 +4,7 @@ class PhrasesController < ApplicationController
   end
 
   def new
-    
+    @phrase = Phrase.new
   end
 
   def create
@@ -12,7 +12,7 @@ class PhrasesController < ApplicationController
   end
 
   def edit
-    
+    @phrase = Phrase.find(params[:id])
   end
 
   def update
@@ -20,6 +20,7 @@ class PhrasesController < ApplicationController
   end
 
   def destroy
-    
+    phrase = Phrase.find(params[:id]).destroy
+    redirect_to phrases_path
   end
 end
