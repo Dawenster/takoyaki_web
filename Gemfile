@@ -23,6 +23,7 @@ gem 'jbuilder', '~> 2.0'
 
 gem 'slim'
 gem 'foundation-rails'
+gem 'simple_form'
 
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0',          group: :doc
