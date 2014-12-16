@@ -3,6 +3,8 @@
     h1
       | All phrases
       
+    = link_to "Add new", new_phrase_path, :class => "button"
+
     table
       thead
         tr
@@ -16,7 +18,7 @@
             | Times shown
           th
           th
-          
+
       tbody
         - @phrases.each do |phrase|
           tr
@@ -32,3 +34,5 @@
               = link_to "Edit", edit_phrase_path(phrase)
             td
               = link_to "Delete", { :id => phrase.id, :action => :destroy }, :method => :delete, data: { confirm: "Are you sure?  You're about to delete this phrase..." }
+
+    = link_to "Add new", new_phrase_path, :class => "button"
