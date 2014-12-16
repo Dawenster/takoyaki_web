@@ -21,7 +21,8 @@ class PhrasesController < ApplicationController
   end
 
   def update
-    @phrase = Phrase.assign_attributes(phrase_params)
+    @phrase = Phrase.find(params[:id])
+    @phrase.assign_attributes(phrase_params)
     if @phrase.save
       redirect_to phrases_path
     else
