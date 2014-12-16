@@ -8,7 +8,12 @@ class PhrasesController < ApplicationController
   end
 
   def create
-    
+    @phrase = Phrase.new(phrase_params)
+    if @phrase.save
+      redirect_to phrases_path
+    else
+      render "new"
+    end
   end
 
   def edit
@@ -16,11 +21,26 @@ class PhrasesController < ApplicationController
   end
 
   def update
-    
+    @phrase = Phrase.assign_attributes(phrase_params)
+    if @phrase.save
+      redirect_to phrases_path
+    else
+      render "edit"
+    end
   end
 
   def destroy
     phrase = Phrase.find(params[:id]).destroy
     redirect_to phrases_path
+  end
+
+  private
+
+  def phrase_params
+    params.require(:phrase).permit(
+      :text,
+      :hint,
+      :_destroy
+    )
   end
 end
