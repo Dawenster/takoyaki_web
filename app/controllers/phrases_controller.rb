@@ -3,10 +3,6 @@ class PhrasesController < ApplicationController
     @phrases = Phrase.all.order(:id)
   end
 
-  def show
-    
-  end
-
   def new
     
   end
