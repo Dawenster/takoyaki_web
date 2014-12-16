@@ -1,0 +1,27 @@
+.row
+  .small-12
+    h1
+      | All phrases
+      
+    table
+      thead
+        tr
+          th
+            | ID
+          th
+            | Text
+          th
+            | Hint
+          th
+            | Times shown
+      tbody
+        - @phrases.each do |phrase|
+          tr
+            td
+              = phrase.id
+            td
+              = phrase.text
+            td
+              = phrase.hint
+            td
+              = phrase.times_shown

@@ -1,5 +1,6 @@
 class PhrasesController < ApplicationController
   def index
+    @phrases = Phrase.all.order(:id)
   end
 
   def show
