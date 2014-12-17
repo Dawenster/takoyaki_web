@@ -5,7 +5,7 @@ class ApisController < ApplicationController
 
   def game_details
     respond_to do |format|
-      format.json {
+      format.html {
         render :json => { 
           :guesses => 5
         }
@@ -15,7 +15,7 @@ class ApisController < ApplicationController
 
   def next_phrase
     respond_to do |format|
-      format.json {
+      format.html {
         render :json => { 
           :phrase => Phrase.next.to_json
         }
