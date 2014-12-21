@@ -7,7 +7,8 @@ class ApisController < ApplicationController
     respond_to do |format|
       format.html {
         render :json => { 
-          :guesses => 5
+          :guesses => 5,
+          :love_points => Game.love_points
         }
       }
     end
@@ -18,6 +19,22 @@ class ApisController < ApplicationController
       format.html {
         render :json => { 
           :phrase => Phrase.next.to_json
+        }
+      }
+    end
+  end
+
+  def finished_game
+    respond_to do |format|
+      game = Game.create(
+        :phrase_id => params[:phrase_id],
+        :guesses => params[:guesses],
+        :guesses_left => params[:guesses_left]
+      )
+
+      format.html {
+        render :json => { 
+          :love_points => Game.love_points
         }
       }
     end
