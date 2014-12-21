@@ -1,6 +1,8 @@
 class Phrase < ActiveRecord::Base
   before_create :set_times_shown
 
+  has_many :games
+
   def self.next
     random_min_phrase = Phrase.random_min_phrase
     random_min_phrase.increment_times_shown
