@@ -5,6 +5,11 @@
       
     = link_to "Add new", new_phrase_path, :class => "button"
 
+    h5
+      = "Love points: #{@love_points}"
+    h5
+      = "Phrases left to show: #{@num_yet_to_show}"
+
     table
       thead
         tr

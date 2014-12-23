@@ -21,6 +21,10 @@ class Phrase < ActiveRecord::Base
     self.update_attributes(:times_shown => self.times_shown + 1)
   end
 
+  def self.num_remaining
+    Phrase.where(:times_shown => Phrase.min_times_shown).count
+  end
+
   private
 
   def set_times_shown

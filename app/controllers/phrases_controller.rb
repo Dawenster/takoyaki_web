@@ -3,6 +3,8 @@ class PhrasesController < ApplicationController
 
   def index
     @phrases = Phrase.all.order(:id)
+    @love_points = Game.love_points
+    @num_yet_to_show = Phrase.num_remaining
   end
 
   def new
